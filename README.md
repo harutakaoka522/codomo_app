@@ -25,13 +25,16 @@ Rails 5.2.3
   - [ ] スケジュール編集とスケジュール削除は投稿者のみ実行可能
 - [ ] スケジュールへのフォト投稿機能
   - [ ] フォトは複数投稿が可能
+  - [ ] フォトへのコメント投稿が可能
+
+
 - [ ] チーム機能
   - [ ] チームの作成や、チームメンバーへのオーナー権限付与などを実行可能に
 - [ ] チームメンバー招待機能
   - [ ] チームメンバーを招待し、スケジュールやフォト投稿など実行可能メンバーを増やすことが可能
 
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml#
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml
 
 ## テーブル定義
 https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml?gid=1920110074&single=true
@@ -56,4 +59,6 @@ https://cacoo.com/diagrams/gWs8ltM39GqSr4TR/E1770
 * 'momentjs-rails'
 * ‘devise’
 * 'jquery-rails', '4.3.3'
- * 'counter_culture', '~> 1.8'
+* 'counter_culture', '~> 1.8'
+* 'carrierwave'
+* 'mini_magick'
