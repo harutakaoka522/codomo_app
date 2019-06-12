@@ -34,12 +34,16 @@ Rails 5.2.3
   - [ ] チームメンバーを招待し、スケジュールやフォト投稿など実行可能メンバーを増やすことが可能
 
 ## カタログ設計
-https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml?gid=1770486883&single=true
 
-## テーブル定義
+## テーブル定義（ER図）
 https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml?gid=1920110074&single=true
 または
 https://cacoo.com/diagrams/t1MvaORY9js3cS8l/298A7
+
+## テーブル一覧
+https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml?gid=1661276896&single=true
+
 
 
 ## 画面遷移図
