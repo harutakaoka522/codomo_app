@@ -37,24 +37,16 @@ Rails 5.2.3
 https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml?gid=1770486883&single=true
 
 ## テーブル定義（ER図）
-https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml?gid=1920110074&single=true
-または
 https://cacoo.com/diagrams/t1MvaORY9js3cS8l/298A7
 
 ## テーブル一覧
 https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml?gid=1661276896&single=true
 
-
-
 ## 画面遷移図
-https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml?gid=1730952680&single=true
-または
 https://cacoo.com/diagrams/qWL3vTy0LPcJ7M2O/252FA
 
 
 ## 画面ワイヤーフレーム
-https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml?gid=1795820625&single=true
-または
 https://cacoo.com/diagrams/gWs8ltM39GqSr4TR/E1770
 
 ## 全ドキュメント
