@@ -12,30 +12,26 @@
     <% end %>
   
     <div class="field">
-      <%= form.label :title %>
+      <%= form.label :タイトル %>
       <%= form.text_field :title %>
     </div>
   
     <div class="field">
-      <%= form.label :content %>
+      <%= form.label :本文 %>
       <%= form.text_area :content %>
     </div>
   
     <div class="field">
-      <%= form.label :status %>
-      <%= form.number_field :status %>
+      <%= form.label :日にち %>
+      <%= form.date_field :start_at ,default: Date.today %>〜
+      
+      <%= form.date_field :end_at ,default: Date.today %>
     </div>
-  
+
     <div class="field">
-      <%= form.label :start_at %>
-      <%= date_select :start_at, Date.today, use_month_numbers: true %>
-      <%= form.datetime_select :start_at, {default: Date.today + 0.hour}, class: 'form-control form-control-inline' %>
-    </div>
-  
-    <div class="field">
-      <%= form.label :end_at %>
-      <%= form.datetime_select :end_at, {default: Date.today + 0.hour}, class: 'form-control form-control-inline' %>
-    </div>
+    <%= form.label :状態 %>
+    <%= form.number_field :status %>
+  </div>
   
     <div class="actions">
       <%= form.submit %>

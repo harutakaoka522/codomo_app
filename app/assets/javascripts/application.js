@@ -42,12 +42,26 @@ $(function () {
 
             $('#calendar').fullCalendar({
                 events: '/events.json',
+
                 header: {
                     // title, prev, next, prevYear, nextYear, today
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'month agendaWeek agendaDay'
+                    right: ''
                 },
+                 selectable: true,
+                 selectHelper: true,
+                 dayClick: function (d, a, j, v) {
+                    $("#calendar").fullCalendar("clientEvents", function (e) {
+                        if (moment(d).format("YYYY-MM-DD") === moment(e.start).format("YYYY-MM-DD")) {
+                            alert("タイトル："+e.title+"\n本文："+e.content);
+
+                        }
+                    });
+                },
+
+                
+            
                 
                 
 
@@ -55,3 +69,4 @@ $(function () {
         }
     });
 });
+

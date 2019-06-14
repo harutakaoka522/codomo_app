@@ -20,8 +20,8 @@
         <td><%= event.title %></td>
         <td><%= event.content %></td>
         <td><%= event.status %></td>
-        <td><%= event.start_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
-        <td><%= event.end_at.strftime("%Y-%m-%d %H:%M:%S") %></td>
+        <td><%= event.start_at.strftime("%Y年%m月%d日") %></td>
+        <td><%= event.end_at.strftime("%Y年%m月%d日") %></td>
         <td><%= link_to 'Show', event %></td>
         <td><%= link_to 'Edit', edit_event_path(event) %></td>
         <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
