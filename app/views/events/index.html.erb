@@ -1,6 +1,8 @@
 <p id="notice"><%= notice %></p>
 <div data-turbolinks="false">
-<h1>Events</h1>
+<h1>スケジュール帳</h1>
+<%= link_to '新しいスケジュールを投稿する', new_event_path, remote: true, class: "btn btn-lg, btn-primary" %>
+<br>
 <div id="calendar"></div>
 <table>
   <thead>
@@ -32,4 +34,5 @@
 
 <br>
 </div>
-<%= link_to 'New Event', new_event_path %>
+
+<div id="event-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

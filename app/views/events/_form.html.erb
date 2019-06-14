@@ -1,26 +1,36 @@
-<%= form_with(model: event, local: true) do |form| %>
-    <% if event.errors.any? %>
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+<%= form_with(model: @event, local: true) do |form| %>
+    <% if @event.errors.any? %>
       <div id="error_explanation">
-        <h2><%= pluralize(event.errors.count, "error") %> prohibited this event from being saved:</h2>
+        <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
   
         <ul>
-        <% event.errors.full_messages.each do |message| %>
+        <% @event.errors.full_messages.each do |message| %>
           <li><%= message %></li>
         <% end %>
         </ul>
       </div>
     <% end %>
+
+    <div class="modal-header">
+    <h5 class="modal-title">新規のスケジュール</h5>
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
   
-    <div class="field">
-      <%= form.label :タイトル %>
-      <%= form.text_field :title %>
+  <div class="form-group field">
+      <%= form.label :タイトル, class: "form-control-label"%>
+      <%= form.text_field :title, class: "form-control" %>
     </div>
   
     <div class="field">
       <%= form.label :本文 %>
-      <%= form.text_area :content %>
+      <%= form.text_area :content, class: "form-control" %>
     </div>
-  
+  <br>
     <div class="field">
       <%= form.label :日にち %>
       <%= form.date_field :start_at ,default: Date.today %>〜
@@ -33,8 +43,10 @@
     <%= form.number_field :status %>
   </div>
   
-    <div class="actions">
-      <%= form.submit %>
-    </div>
+  <div class="modal-footer actions">
+  <%= form.submit class: "btn btn-primary"%>
+</div>
   <% end %>
+  </div>
+  </div>
   
