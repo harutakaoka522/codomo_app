@@ -14,7 +14,7 @@
     <% end %>
 
     <div class="modal-header">
-    <h5 class="modal-title">新規のスケジュール</h5>
+    <h5 class="modal-title">スケジュール</h5>
     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
@@ -40,8 +40,9 @@
 
     <div class="field">
     <%= form.label :状態 %>
-    <%= form.number_field :status %>
-  </div>
+    <%= form.select :status,Event.statuses.keys.to_a, {} %>
+    </div>
+    <br>
   
   <div class="modal-footer actions">
   <%= form.submit class: "btn btn-primary"%>
