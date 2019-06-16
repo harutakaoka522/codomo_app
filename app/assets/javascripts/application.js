@@ -57,7 +57,7 @@ $(function () {
                  dayClick: function (d, a, j, v) {
                     $("#calendar").fullCalendar("clientEvents", function (e) {
                         if (moment(d).format("YYYY-MM-DD") === moment(e.start).format("YYYY-MM-DD")) {
-                            alert("タイトル："+e.title+"\n本文："+e.content+"\n状態："+ e.start_at);
+                            alert("タイトル："+e.title+"\n本文："+e.content);
                         
                       }
                     });
