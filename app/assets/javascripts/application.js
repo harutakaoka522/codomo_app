@@ -12,5 +12,64 @@
 //
 //= require rails-ujs
 //= require activestorage
+//= require jquery
+//= require popper
+//= require bootstrap-sprockets
 //= require turbolinks
+//= require moment
+//= require fullcalendar
+//= require fullcalendar/lang/ja
+// = require data-confirm-modal
 //= require_tree .
+
+
+
+
+$(function () {
+    // 画面遷移を検知
+    $(document).on('turbolinks:load', function () {
+        // lengthを呼び出すことで、#calendarが存在していた場合はtrueの処理がされ、無い場合はnillを返す
+        if ($('#calendar').length) {
+            function eventCalendar() {
+                return $('#calendar').fullCalendar({
+                });
+            };
+            function clearCalendar() {
+                $('#calendar').html('');
+            };
+
+            $(document).on('turbolinks:load', function () {
+                eventCalendar();
+            });
+            $(document).on('turbolinks:before-cache', clearCalendar);
+
+            $('#calendar').fullCalendar({
+                events: '/events.json',
+
+                header: {
+                    // title, prev, next, prevYear, nextYear, today
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: ''
+                },
+                 selectable: true,
+                 selectHelper: true,
+                 dayClick: function (d, a, j, v) {
+                    $("#calendar").fullCalendar("clientEvents", function (e) {
+                        if (moment(d).format("YYYY-MM-DD") === moment(e.start).format("YYYY-MM-DD")) {
+                            alert("タイトル："+e.title+"\n本文："+e.content);
+                        
+                      }
+                    });
+                },
+
+                
+            
+                
+                
+
+            });
+        }
+    });
+});
+
