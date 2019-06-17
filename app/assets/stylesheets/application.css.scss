@@ -11,7 +11,7 @@
  * It is generally better to create a new file per style scope.
  *
 
-
+ *= require font-awesome
  *= require fullcalendar
  */
  @import "bootstrap";
@@ -21,4 +21,57 @@
     text-align: center;
     width:700px;
     height: 700px;
+ }
+ 
+ .sign_button {
+   display: inline-block;
+   cursor: pointer;
+   border: 2px solid black;
+   padding: 5px;
+   opacity: .6;
+   transition: .3s;
+ }
+ 
+ .button:hover {
+   opacity: 1;
+ }
+ 
+ .sign_up_button {
+   margin-right: 30px;
+ }
+
+ .sign_modal_wrapper {
+   position: fixed;
+   width: 100%;
+   height: 100%;
+   top: 0;
+   left: 0;
+   background-color: black;
+   opacity: .7;
+   display: none;
+ }
+
+ .sign_modal {
+   position: absolute;
+   background-color: #fff;
+   width: 450px;
+   height: 350px;
+   top: 0;
+   left: 0;
+   bottom: 0;
+   right: 0;
+   margin: 100px auto 0;
+   border: 1px solid #eee;
+   display: none;
+   text-align: right;
+ }
+ 
+ .sign_modal_content {
+   display: none;
+   text-align: center;
+ }
+
+ .fa_wrapper {
+   cursor: pointer;
+   margin: 3px 3px 0 0;
  }

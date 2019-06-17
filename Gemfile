@@ -7,6 +7,10 @@ gem 'fullcalendar-rails'
 gem 'momentjs-rails'
 gem 'bootstrap', '~> 4.3.1'
 gem 'data-confirm-modal'
+gem 'devise'
+gem 'font-awesome-rails'
+
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use postgresql as the database for Active Record
