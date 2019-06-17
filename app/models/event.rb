@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-
+    belongs_to :user
     enum status: {'完了':0,'未完了':1}
 
     validate :start_at_cannot_be_in_the_past

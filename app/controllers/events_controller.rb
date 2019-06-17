@@ -17,7 +17,8 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-
+    @event.user.id = current_user.id
+    #@event = current_user.events.build(event_params)
     respond_to do |format|
       if @event.save
         format.html { redirect_to action: 'index', notice: 'スケジュールを投稿しました' }
