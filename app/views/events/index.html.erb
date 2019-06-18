@@ -3,6 +3,7 @@
 <div data-turbolinks="false">
 <h1>スケジュール帳</h1>
 <%= link_to '新しいスケジュールを投稿する', new_event_path, remote: true, class: "btn btn-lg, btn-primary" %>
+<%= link_to 'プロフィール画面へ', user_path(current_user.id), class: "btn btn-lg, btn-primary" %>
 <br>
 <div id="calendar"></div>
 
