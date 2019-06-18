@@ -25,6 +25,8 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
 
+ 
+
   # def destroy
   #   session.delete(:user_id)
   #   redirect_to '/home/top'

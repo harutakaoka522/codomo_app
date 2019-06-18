@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <p>
 
-<h2>投稿者: <%= @event.name.name %></h2>
+<h2>投稿者: <%= @event.user.name %></h2>
 
   <strong>タイトル:</strong>
   <%= @event.title %>
@@ -22,9 +22,11 @@
   <strong>状態:</strong>
   <%= @event.status %>
 </p>
-
+<% if @event.user_id == @current_user.id %>
 <%= link_to 'Edit', edit_event_path(@event), remote: true, class: "btn btn-lg btn-primary" %>
 <%= link_to 'Destroy', @event, method: :delete, data:{ confirm: '本当に削除して良いですか?',  cancel: 'やっぱやめた',  commit: '削除します'}, title: '削除確認' , class: "btn btn-lg btn-primary" %>
+<% end %>
+
 <%= link_to 'Back', events_path, class: "btn btn-lg btn-primary"  %>
 
 <div id="event-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>

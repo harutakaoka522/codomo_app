@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :login_check, only: [:index, :show, :edit, :update, :destroy]
 
   def index
     @events = Event.all
@@ -17,7 +18,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
-    @event.user.id = current_user.id
+    @event.user_id = current_user.id
     #@event = current_user.events.build(event_params)
     respond_to do |format|
       if @event.save
@@ -59,5 +60,11 @@ class EventsController < ApplicationController
   
   def event_params
     params.require(:event).permit(:title, :content, :status, :start_at, :end_at)
+  end
+end
+
+def login_check
+  unless user_signed_in?
+    redirect_to root_path
   end
 end
