@@ -1,22 +1,33 @@
 Rails.application.routes.draw do
+  # get 'pictures/index'
+  # get 'pictures/new'
+  # get 'pictures/show'
+  # get 'pictures/edit'
   root "home#top"
-  get 'home/top'
+  # get 'home/top'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
 
-  get 'users/show'
+  #get 'users/show'
   resources :users, only: [:show]
 
-  resources :events
-    root 'events#index'
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
+  
+  resources :events do
+    resources :pictures
+    #  collection do
+    #  end
   end
 
-
-devise_scope :user do
-  get '/users/sign_out' => 'devise/sessions#destroy'
+   # root 'events#index'
 end
+
+
+
 
 
