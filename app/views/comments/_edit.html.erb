@@ -1,0 +1,14 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+<br><br><br>
+<%= form_with(model: @comment, url: event_picture_comment_path(event_id: @comment.picture.event_id, picture_id: @comment.picture_id, comment_id: @comment.id)) do |form| %>
+  <div class="field">
+    <%= form.text_area :content, class: "comment_input" %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>
+</div>

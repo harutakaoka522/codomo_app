@@ -31,7 +31,6 @@
 <%= link_to 'スケジュールに戻る', events_path, class: "btn btn-lg btn-primary"  %>
 
 <div id="event-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-
 <h2>ここから思い出の写真の投稿</h2>
 <% if @event.user_id == @current_user.id %>
 <%= link_to '写真を投稿する', new_event_picture_path(@picture.event_id) , class: "btn btn-lg btn-primary" %>
