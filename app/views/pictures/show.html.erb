@@ -1,0 +1,26 @@
+
+<body>
+<div class="wrapper">
+<header>
+<h1>picture</h1>
+
+<td><%= link_to '編集する', edit_event_picture_path(@picture.event_id, @picture.id) %></td>
+
+<%= link_to '一覧に戻る', event_path(@picture.event_id) ,class: 'btn-square-so-pop3'%>
+<%= link_to '投稿する', new_event_picture_path ,class: 'btn-square-so-pop4'%><br>
+
+<h3 id="notice"><%= notice %></h3>
+
+</header>
+<br>
+<br>
+<p><%= image_tag @picture.image.url, :size =>'378x318'%>
+</p>
+<h2>投稿者: 
+
+</h2>
+<h2>内容: 
+  <%= @picture.image_content %>
+</h2>
+  </div>
+</body>

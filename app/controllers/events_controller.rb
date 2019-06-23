@@ -8,19 +8,28 @@ class EventsController < ApplicationController
   end
 
   def show
+
+    @pictures = @event.pictures
+   @picture = @event.pictures.build
+   # @picture = Picture.new
+  #binding.pry
   end
 
   def new
     @event = Event.new
+    @event.pictures.build
   end
 
   def edit
   end
 
   def create
+    
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     #@event = current_user.events.build(event_params)
+
+    
     respond_to do |format|
       if @event.save
         format.html { redirect_to action: 'index', notice: 'スケジュールを投稿しました' }
@@ -60,7 +69,13 @@ class EventsController < ApplicationController
   end
   
   def event_params
-    params.require(:event).permit(:title, :content, :status, :start_at, :end_at)
+    params.require(:event).permit(:title, :content, :status, :start_at, :end_at,
+    pictures_attributes: [
+          :id, 
+          :image, 
+          :image_content
+        ]    
+      )
   end
 end
 

@@ -1,3 +1,4 @@
+
 <p id="notice"><%= notice %></p>
 <p>
 
@@ -23,10 +24,42 @@
   <%= @event.status %>
 </p>
 <% if @event.user_id == @current_user.id %>
-<%= link_to 'Edit', edit_event_path(@event), remote: true, class: "btn btn-lg btn-primary" %>
-<%= link_to 'Destroy', @event, method: :delete, data:{ confirm: '本当に削除して良いですか?',  cancel: 'やっぱやめた',  commit: '削除します'}, title: '削除確認' , class: "btn btn-lg btn-primary" %>
+<%= link_to '編集', edit_event_path(@event), remote: true, class: "btn btn-lg btn-primary" %>
+<%= link_to '削除', @event, method: :delete, data:{ confirm: '本当に削除して良いですか?',  cancel: 'やっぱやめた',  commit: '削除します'}, title: '削除確認' , class: "btn btn-lg btn-primary" %>
 <% end %>
 
-<%= link_to 'Back', events_path, class: "btn btn-lg btn-primary"  %>
+<%= link_to 'スケジュールに戻る', events_path, class: "btn btn-lg btn-primary"  %>
 
 <div id="event-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+<h2>ここから思い出の写真の投稿</h2>
+<% if @event.user_id == @current_user.id %>
+<%= link_to '写真を投稿する', new_event_picture_path(@picture.event_id) , class: "btn btn-lg btn-primary" %>
+<% end %>
+<div>
+  <% if @pictures.count > 0 %>
+    <% @pictures.each_with_index do |picture,i| %>   
+
+    <div>
+    <% unless i == @pictures.size - 1 %>
+      <p><%= "#{h(i + 1)}番目" %>:内容: <%= picture.image_content %></p>
+        <% if picture.image.url %>
+          <%= image_tag(picture.image.url, :size =>'378x318') %>
+          <% else %>
+        <% end %>
+
+
+      <td><%= link_to "確認", "#{picture.event_id}/pictures/#{picture.id}" , class: "btn btn-lg btn-primary"%></td>
+      <% if @event.user_id == @current_user.id %>
+      <td><%= link_to "編集", "#{picture.event_id}/pictures/#{picture.id}/edit" , class: "btn btn-lg btn-primary"%></td>
+      <%= link_to '削除', "#{picture.event_id}/pictures/#{picture.id}", method: :delete, data:{ confirm: '本当に削除して良いですか?',  cancel: 'やめます',  commit: '写真を削除します'}, title: '削除確認' , class: "btn btn-lg btn-primary" %>
+      <% end %>
+      <% end %>
+    </div>
+
+    
+  <% end %>
+<% end %>
+</div>
+
+

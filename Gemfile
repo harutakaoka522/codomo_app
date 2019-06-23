@@ -9,6 +9,8 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'data-confirm-modal'
 gem 'devise'
 gem 'font-awesome-rails'
+gem 'carrierwave'
+gem 'mini_magick'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
