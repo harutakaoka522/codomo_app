@@ -1,18 +1,14 @@
 
 <ul>
-  <% comments.each do |comment| %>
+  <% comments.each_with_index do |comment,i| %>
     <% if comment.id.present? %>
-      <li>
-      
     
-      <p><%= comment.picture.event.user.name %></p>
-        <p><%= comment.content %></p>
-      </li>
-
-  
+      <p><%= "#{h(i + 1)}" %> 投稿者：<%= comment.user.name %></p>
+      <p>コメント：<%= comment.content %></p>
+      <% if comment.user_id == current_user.id %>
       <%= link_to 'コメントを編集する', "#{picture.id}/comments/#{comment.id}/edit", remote: true, class: "btn btn-lg btn-primary" %>
-      <%= link_to '削除', "#{picture.id}/comments/#{comment.id}", method: :delete, remote: true, class: "btn btn-lg btn-primary" %>
-
+      <%= link_to 'コメントを削除する', "#{picture.id}/comments/#{comment.id}", method: :delete, remote: true, class: "btn btn-lg btn-primary" %>
+      <% end %>
 
       <div id="comment-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
     <% end %>

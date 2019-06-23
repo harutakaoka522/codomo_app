@@ -8,7 +8,6 @@ class EventsController < ApplicationController
   end
 
   def show
-
    @pictures = @event.pictures
    @picture = @event.pictures.build
    # @picture = Picture.new
