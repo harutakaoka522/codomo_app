@@ -1,8 +1,9 @@
 
 <ul>
+
   <% comments.each_with_index do |comment,i| %>
     <% if comment.id.present? %>
-    
+    <p id="notice"><%= notice %></p>
       <p><%= "#{h(i + 1)}" %> 投稿者：<%= comment.user.name %></p>
       <p>コメント：<%= comment.content %></p>
       <% if comment.user_id == current_user.id %>

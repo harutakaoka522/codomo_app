@@ -8,8 +8,9 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.js { render :index }
-      else
-        format.html { redirect_to picture_path(@picture), notice: '投稿できませんでした...' }
+      else 
+      format.html { redirect_to "/events/#{@picture.event_id}/pictures/#{@picture.id}", notice: '投稿できませんでした...' }
+    #format.js { render :index, notice: '投稿できませんでした...' }
       end
     end
   end
