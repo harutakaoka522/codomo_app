@@ -1,17 +1,21 @@
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :login_check, only: [:index, :show, :edit, :update, :destroy]
+  before_action :access_lock, only: [:edit, :update, :destroy]
 
   def index
     @events = Event.all
+    @q = Event.ransack(params[:q])
+    @statues = {完了: 0, 未完了: 1} 
     
+    if params[:q]
+      @events = @q.result(distinct: true)
+    end
   end
 
   def show
    @pictures = @event.pictures
    @picture = @event.pictures.build
-   # @picture = Picture.new
-  #binding.pry
   end
 
   def new
@@ -76,10 +80,16 @@ class EventsController < ApplicationController
         ]    
       )
   end
-end
 
-def login_check
-  unless user_signed_in?
-    redirect_to root_path
+  def login_check
+    unless user_signed_in?
+      redirect_to root_path, notice: 'ログインしましょう！'
+    end
+  end
+  
+  def access_lock
+    if @event.user.id != current_user.id
+      redirect_to events_url, notice: 'あなたには権限がありません！'
+    end
   end
 end

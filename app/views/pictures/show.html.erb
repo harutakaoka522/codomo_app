@@ -4,10 +4,10 @@
 <header>
 <h1>picture</h1>
 
-<td><%= link_to '編集する', edit_event_picture_path(@picture.event_id, @picture.id) %></td>
+<td><%= link_to '編集する', edit_event_picture_path(@picture.event_id, @picture.id) , class: "btn btn-lg btn-success" %></td>
 
-<%= link_to '一覧に戻る', event_path(@picture.event_id) ,class: 'btn-square-so-pop3'%>
-<%= link_to '投稿する', new_event_picture_path ,class: 'btn-square-so-pop4'%><br>
+<%= link_to '一覧に戻る', event_path(@picture.event_id) , class: "btn btn-lg btn-primary" %>
+<%= link_to '写真を投稿する', new_event_picture_path , class: "btn btn-lg btn-info"%><br>
 
 <h3 id="notice"><%= notice %></h3>
 
