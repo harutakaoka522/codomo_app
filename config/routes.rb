@@ -1,17 +1,12 @@
 Rails.application.routes.draw do
-  # get 'pictures/index'
-  # get 'pictures/new'
-  # get 'pictures/show'
-  # get 'pictures/edit'
+  get 'comments/create'
   root "home#top"
-  # get 'home/top'
 
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
 
-  #get 'users/show'
   resources :users, only: [:show]
 
   devise_scope :user do
@@ -19,13 +14,13 @@ Rails.application.routes.draw do
   end
   
   resources :events do
-    resources :pictures
-    #  collection do
-    #  end
+    resources :pictures do
+      resources :comments
+    end
   end
-
-   # root 'events#index'
 end
+
+
 
 
 
