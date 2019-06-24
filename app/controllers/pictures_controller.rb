@@ -5,11 +5,9 @@ class PicturesController < ApplicationController
     @pictures = Picture.all
   end
 
-  def show
-    
+  def show 
     @comments = @picture.comments
     @comment = @picture.comments.build
-    
   end
 
   def edit
@@ -30,8 +28,6 @@ class PicturesController < ApplicationController
   def create
    event = Event.find(params[:event_id])
    @picture = event.pictures.build(picture_params)
-  # @picture = Picture.new(picture_params)
-  
     respond_to do |format|
       if @picture.save
        
@@ -45,9 +41,7 @@ class PicturesController < ApplicationController
   end
 
   def update
-    respond_to do |format|
-
-      
+    respond_to do |format|      
       if @picture.update(picture_params)
        # binding.pry
         format.html { redirect_to event_path(@picture.event_id), notice: '投稿の編集をしました！' }
@@ -78,7 +72,6 @@ class PicturesController < ApplicationController
   end
       
   def picture_params
-  #  params.require(:picture).permit(:image, :image_cache)
     params.require(:picture).permit(:image, :image_cache, :image_content).merge(event_id: params[:event_id])
   end
 end

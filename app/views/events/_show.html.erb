@@ -1,0 +1,56 @@
+<div class="modal-dialog" role="document">
+  <div class="modal-content">
+<p id="notice"><%= notice %></p>
+<p>
+
+<h2>投稿者: <%= @event.user.name %></h2>
+
+<p>
+  <strong>タイトル:</strong>
+  <%= @event.title %>
+</p>
+
+<p>
+  <strong>本文:</strong>
+  <%= @event.content %>
+</p>
+
+<p>
+  <strong>日にち:</strong>
+  <%= @event.start_at.strftime("%Y年%m月%d日") %>〜
+  <%= @event.end_at.strftime("%Y年%m月%d日") %>
+</p>
+
+<p>
+  <strong>状態:</strong>
+  <%= @event.status %>
+</p>
+
+<div id="picture-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="event-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<h2>思い出の写真</h2>
+<div>
+  <% if @pictures.count > 0 %>
+    <% @pictures.each_with_index do |picture,i| %>   
+
+    <div>
+    <% unless i == @pictures.size - 1 %>
+      <p><%= "#{h(i + 1)}番目" %>:内容: <%= picture.image_content %></p>
+        <% if picture.image.url %>
+          <%= image_tag(picture.image.url, :size =>'378x318') %>
+          <% else %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+<% end %>
+</div>
+<br>
+<td><%= link_to '詳細', event_path(@event.id), class: "btn btn-lg, btn-info" %></td>
+<br>
+<%= link_to 'スケジュールに戻る', events_path, class: "btn btn-lg btn-warning"  %>
+</div>
+</div>
+
+
+

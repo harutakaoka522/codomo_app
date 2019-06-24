@@ -1,12 +1,12 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
 <%= form_with(model:  [@event, @picture], local: true) do |form| %>
-  <% if picture.errors.any? %>
+  <% if @picture.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(picture.errors.count, "つのエラー") %> 下記理由によりエラーが発生しました！:</h2>
+      <h2><%= pluralize(@picture.errors.count, "つのエラー") %> 下記理由によりエラーが発生しました！:</h2>
 
       <ul class="ten-non">
-      <% picture.errors.full_messages.each do |message| %>
+      <% @picture.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -17,24 +17,26 @@
   <%= form_with(model: [@event, @picture], local: true) do |form| %>
 
   <div class="field">
-    <h2><%= form.label :image_content %></h2>
+    <h2><%= form.label :写真の内容 %></h2>
     <%= form.text_field :image_content, id: :picture_content %>
-    
   </div>
-  <div class="field">
- 
-  <h2><%= form.label :image %></h2>
-    <%= image_tag(@picture.image.url, :size =>'378x318') if @picture.image && @picture.image.url%><br>
 
-    <%= form.file_field :image, id: :picture_image %>
-    <%= form.hidden_field :image_cache %>
-    
-  </div>
+  <div class="field image">
+  <h2><%= form.label :写真 %></h2>
+      <div id="img_field" onClick="$('#file').click()" >
+ 
+        <% if @picture.image.url.present? %>
+        <%= image_tag(@picture.image.url )%>
+ 
+        <% end %>
+
+      </div>
+      <%= form.file_field :image, class: "image", style: "display:none;", id: "file"%>
 <br>
   <div class="actions">
     <%= form.submit %>
+    
   </div>
+  </div>  </div>
   <br>
 <% end %>
-</div>
-</div>

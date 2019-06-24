@@ -2,12 +2,53 @@
 <p id="notice"><%= notice %></p>
 <div data-turbolinks="false">
 <h1>スケジュール帳</h1>
-<%= link_to '新しいスケジュールを投稿する', new_event_path, remote: true, class: "btn btn-lg, btn-primary" %>
+
+<%= link_to '新しいスケジュールを投稿する', new_event_path, remote: true, class: "btn btn-lg, btn-warning" %>
 <%= link_to 'プロフィール画面へ', user_path(current_user.id), class: "btn btn-lg, btn-primary" %>
 <br>
 <div id="calendar"></div>
-
-<br>
 </div>
 
 <div id="event-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<div id="show-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+<%= search_form_for @q do |f| %>
+    <%= f.label :title_cont, "スケジュール名検索" %>
+    <%= f.search_field :title_cont %>
+    <%= f.hidden_field :search, value: 'true' %>
+
+    <%= f.label :status_cont, "状態検索" %>
+    <%= f.select :status_eq, @statues, include_blank: true %>
+
+    <%= f.submit "検索" %>
+    <% end %>
+
+
+    <div class="table-responsive">
+    　 <table class="table table-hover">
+    　   <tr>
+           <th>番号</th>
+           <th>投稿者</th>
+           <th>日時</th>
+    　     <th>スケジュール名</th>
+           <th>状態</th> 
+           <th>詳細へ</th> 
+    　   </tr>
+  
+    <% @events.each_with_index do |event,i| %>
+    　   <tr>
+           <td><%= i+1 %></td>
+           <td><%= event.user.name %></td>
+           <td><%= event.start_at.strftime("%Y年%m月%d日") %>〜<%= event.end_at.strftime("%Y年%m月%d日") %></td>
+    　     <td><%= event.title %></td>
+
+　         <% if event.status == '完了' %>
+             <td class="active"><%= event.status %></td>
+　         <% else %>           
+　           <td class="success"><%= event.status %></td>
+　         <% end %>
+
+    <td><%= link_to '詳細', event_path(event.id), remote: true, class: "btn btn-lg, btn-warning" %></td>
+    　   </tr>
+    <% end %>
+    　 </table>
+    </div>
