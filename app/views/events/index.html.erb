@@ -1,16 +1,24 @@
-
+<body>
+<div class="event">
+<div class="event_gradation">
 <p id="notice"><%= notice %></p>
-<div data-turbolinks="false">
-<h1>スケジュール帳</h1>
 
-<%= link_to '新しいスケジュールを投稿する', new_event_path, remote: true, class: "btn btn-lg, btn-warning" %>
-<%= link_to 'プロフィール画面へ', user_path(current_user.id), class: "btn btn-lg, btn-primary" %>
-<br>
-<div id="calendar"></div>
+<div data-turbolinks="false">
+<div class= "toukou">
+<h1>スケジュール帳</h1>
+<%= link_to 'スケジュールを投稿', new_event_path, remote: true, class: "btn btn-lg, btn-warning" %>
 </div>
+<br>
+<div id="calendar" class="center"></div>
+</div>
+<br>
 
 <div id="event-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <div id="show-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
+
+
+<h2>スケジュールの検索</h2>
+
 <%= search_form_for @q do |f| %>
     <%= f.label :title_cont, "スケジュール名検索" %>
     <%= f.search_field :title_cont %>
@@ -52,3 +60,8 @@
     <% end %>
     　 </table>
     </div>
+
+    
+</div>
+</div>
+    </boby>

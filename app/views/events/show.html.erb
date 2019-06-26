@@ -1,23 +1,21 @@
+<body>
+<div class="picture">
 <p id="notice"><%= notice %></p>
-<p>
 
 <h2>投稿者: <%= @event.user.name %></h2>
 <p>
   <strong>タイトル:</strong>
   <%= @event.title %>
 </p>
-
 <p>
   <strong>本文:</strong>
   <%= @event.content %>
 </p>
-
 <p>
   <strong>日にち:</strong>
   <%= @event.start_at.strftime("%Y年%m月%d日") %>〜
   <%= @event.end_at.strftime("%Y年%m月%d日") %>
 </p>
-
 <p>
   <strong>状態:</strong>
   <%= @event.status %>
@@ -35,11 +33,11 @@
 <% if @event.user_id == @current_user.id %>
 <%= link_to '写真を投稿する', new_event_picture_path(@picture.event_id) ,remote: true,class: "btn btn-lg btn-info" %>
 <% end %>
+
+
 <div>
   <% if @pictures.count > 0 %>
     <% @pictures.each_with_index do |picture,i| %>   
-
-    <div>
     <% unless i == @pictures.size - 1 %>
       <p><%= "#{h(i + 1)}番目" %>:内容: <%= picture.image_content %></p>
         <% if picture.image.url %>
@@ -50,14 +48,14 @@
 
       <td><%= link_to "確認", "#{picture.event_id}/pictures/#{picture.id}" , class: "btn btn-lg btn-info"%></td>
       <% if @event.user_id == @current_user.id %>
-      <td><%= link_to "編集", "#{picture.event_id}/pictures/#{picture.id}/edit" , class: "btn btn-lg btn-success"%></td>
+      <td><%= link_to "編集", "#{picture.event_id}/pictures/#{picture.id}/edit" ,remote: true, class: "btn btn-lg btn-success"%></td>
       <%= link_to '削除', "#{picture.event_id}/pictures/#{picture.id}", method: :delete, data:{ confirm: '本当に削除して良いですか?',  cancel: 'やめます',  commit: '写真を削除します'}, title: '削除確認' , class: "btn btn-lg btn-danger" %>
       <% end %>
       <% end %>
-    </div>
-
-    
   <% end %>
 <% end %>
+</div>
+</div>
+</body>
 
 

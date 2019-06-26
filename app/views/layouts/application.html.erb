@@ -10,6 +10,17 @@
   </head>
 
   <body>
+  <header>
+  <% if user_signed_in? %>
+  <nav>
+  <ul>
+    <li><a><%= link_to 'ホーム', user_path(current_user.id) %></a></li>
+    <li><a><%= link_to 'スケジュール', events_path %></a></li>
+    <li><a><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></a></li>
+  </ul>
+</nav>
+<% end %>
+</header>
     <%= yield %>
-  </body>
+</body>
 </html>
