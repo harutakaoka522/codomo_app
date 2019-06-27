@@ -1,6 +1,7 @@
 <body>
-<div class="picture">
+<div class="event_show">
 <p id="notice"><%= notice %></p>
+
 
 <h2>投稿者: <%= @event.user.name %></h2>
 <p>
@@ -22,40 +23,52 @@
 </p>
 <% if @event.user_id == @current_user.id %>
 <%= link_to '編集', edit_event_path(@event), remote: true, class: "btn btn-lg btn-success" %>
-<%= link_to '削除', @event, method: :delete, data:{ confirm: '本当に削除して良いですか?',  cancel: 'やっぱやめた',  commit: '削除します'}, title: '削除確認' , class: "btn btn-lg btn-danger" %>
+<%= link_to '削除', @event, method: :delete, data:{ confirm: '本当に削除して良いですか?',  cancel: 'やめます',  commit: '削除します'}, title: '削除確認' , class: "btn btn-lg btn-danger" %>
 <% end %>
 
 <%= link_to 'スケジュールに戻る', events_path, class: "btn btn-lg btn-warning"  %>
 
 <div id="picture-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
 <div id="event-modal" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true"></div>
-<h2>ここから思い出の写真の投稿</h2>
+
+
+<h2>思い出の写真の投稿</h2>
+
 <% if @event.user_id == @current_user.id %>
 <%= link_to '写真を投稿する', new_event_picture_path(@picture.event_id) ,remote: true,class: "btn btn-lg btn-info" %>
 <% end %>
 
 
-<div>
+
+<div class="row">
   <% if @pictures.count > 0 %>
     <% @pictures.each_with_index do |picture,i| %>   
-    <% unless i == @pictures.size - 1 %>
+     <% unless i == @pictures.size - 1 %>
       <p><%= "#{h(i + 1)}番目" %>:内容: <%= picture.image_content %></p>
         <% if picture.image.url %>
-          <%= image_tag(picture.image.url, :size =>'378x318') %>
-          <% else %>
+          <%= image_tag(picture.image.url, :size =>'258x218') %>
+        <% else %>
         <% end %>
-
-
       <td><%= link_to "確認", "#{picture.event_id}/pictures/#{picture.id}" , class: "btn btn-lg btn-info"%></td>
       <% if @event.user_id == @current_user.id %>
       <td><%= link_to "編集", "#{picture.event_id}/pictures/#{picture.id}/edit" ,remote: true, class: "btn btn-lg btn-success"%></td>
       <%= link_to '削除', "#{picture.event_id}/pictures/#{picture.id}", method: :delete, data:{ confirm: '本当に削除して良いですか?',  cancel: 'やめます',  commit: '写真を削除します'}, title: '削除確認' , class: "btn btn-lg btn-danger" %>
       <% end %>
-      <% end %>
+     <% end %>
   <% end %>
+
+  </div>
+
 <% end %>
+
+
+
+
+
 </div>
-</div>
+
+
+
 </body>
 
 
