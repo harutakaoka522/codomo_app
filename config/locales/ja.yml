@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      event:
+        title: タイトル
+        content: 内容
+        start_at: 日程
+        end_at: 終了日
+        status: 状態
+  helpers:
+    submit:
+      create: 登録する
+      update: 編集する
