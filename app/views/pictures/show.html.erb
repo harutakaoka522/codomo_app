@@ -1,15 +1,10 @@
 
 <body>
-<div class="wrapper">
+<div class="picture_show">
 <header>
-<h1>picture</h1>
-
-<td><%= link_to '編集する', edit_event_picture_path(@picture.event_id, @picture.id) , class: "btn btn-lg btn-success" %></td>
+<br>
 
 <%= link_to '一覧に戻る', event_path(@picture.event_id) , class: "btn btn-lg btn-primary" %>
-<%= link_to '写真を投稿する', new_event_picture_path , class: "btn btn-lg btn-info"%><br>
-
-<h3 id="notice"><%= notice %></h3>
 
 </header>
 <br>
@@ -23,24 +18,19 @@
 <h2>内容: 
   <%= @picture.image_content %>
 </h2>
-  </div>
-
-
-  <h2>コメント一覧</h2>
-  <div id="comments_area">
+ 
   
-    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+  <div id="comments_area">
+  <h2>コメント一覧</h2>
+  
     <%= render partial: 'comments/index', locals: { comments: @comments, picture: @picture } %>
   </div>
+  <div id="comments_area">
 
-  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
   <%= render partial: 'comments/form', locals: { comment: @comment, picture: @picture } %>
  
-</div>
-
-
-
-
-
+  </div>
+  <p id="notice"><%= notice %></p>
+  </div>
 
 </body>

@@ -1,6 +1,14 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
 <p id="notice"><%= notice %></p>
+
+<div class="modal-header">
+<h5 class="modal-title">投稿内容</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+</button>
+</div>
+<div class="modal-body">
 <p>
 
 <h2>投稿者: <%= @event.user.name %></h2>
@@ -16,7 +24,7 @@
 </p>
 
 <p>
-  <strong>日にち:</strong>
+  <strong>日程:</strong>
   <%= @event.start_at.strftime("%Y年%m月%d日") %>〜
   <%= @event.end_at.strftime("%Y年%m月%d日") %>
 </p>
@@ -46,9 +54,8 @@
 <% end %>
 </div>
 <br>
-<td><%= link_to '詳細', event_path(@event.id), class: "btn btn-lg, btn-info" %></td>
-<br>
-<%= link_to 'スケジュールに戻る', events_path, class: "btn btn-lg btn-warning"  %>
+<td><%= link_to '詳細', event_path(@event.id), class: "btn btn-lg, btn-info" %></td> <%= link_to '戻る', events_path, class: "btn btn-lg, btn-warning"  %>
+</div>
 </div>
 </div>
 

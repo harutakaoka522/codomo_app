@@ -20,26 +20,25 @@
     </button>
   </div>
   <div class="modal-body">
-  
   <div class="form-group field">
-      <%= form.label :タイトル, class: "form-control-label"%>
+      <%= form.label :title, class: "form-control-label"%>
       <%= form.text_field :title, class: "form-control" %>
     </div>
   
     <div class="field">
-      <%= form.label :本文 %>
+      <%= form.label :content %>
       <%= form.text_area :content, class: "form-control" %>
     </div>
   <br>
     <div class="field">
-      <%= form.label :日にち %>
+      <%= form.label :start_at %>
       <%= form.date_field :start_at ,default: Date.today %>〜
       
       <%= form.date_field :end_at ,default: Date.today %>
     </div>
 
     <div class="field">
-    <%= form.label :状態 %>
+    <%= form.label :status %>
     <%= form.select :status,Event.statuses.keys.to_a, {} %>
     </div>
     <br>

@@ -1,17 +1,26 @@
+<body>
 <div class="modal-dialog" role="document">
   <div class="modal-content">
- 
-<div class="modal-header">
+
+
 <%= form_with(model: @comment, url: event_picture_comment_path(event_id: @comment.picture.event_id, picture_id: @comment.picture_id, comment_id: @comment.id)) do |form| %>
+  <div class="modal-header">
+  <h5 class="modal-title">コメントの編集</h5>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+
+  <div class="modal-body">
   <div class="field">
     <%= form.text_area :content, class: "comment_input" %>
   </div>
-
   <div class="actions">
     <%= form.submit %>
     </div>
-  </div>
+    </div>
+  
 <% end %>
-
 </div>
 </div>
+</body>
