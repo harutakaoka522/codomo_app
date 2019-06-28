@@ -12,6 +12,7 @@ gem 'font-awesome-rails'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'
+gem 'rails-i18n'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
