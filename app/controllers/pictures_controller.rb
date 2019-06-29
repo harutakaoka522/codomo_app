@@ -34,8 +34,8 @@ class PicturesController < ApplicationController
         format.html { redirect_to event_path(@picture.event_id), notice: '画像を投稿しました！' }
         format.json { render :show, status: :created, location: @picture }
       else
-        format.html { render :new }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
+       format.html { redirect_to event_path(@picture.event_id), notice: '正しく入力してください' }
+       format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +47,7 @@ class PicturesController < ApplicationController
         format.html { redirect_to event_path(@picture.event_id), notice: '投稿の編集をしました！' }
         format.json { render :show, status: :ok, location: @picture }
       else
-        format.html { render :edit }
+        format.html { redirect_to event_path(@picture.event_id),notice: '正しく入力してください'  }
         format.json { render json: @picture.errors, status: :unprocessable_entity }
       end
     end

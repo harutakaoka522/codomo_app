@@ -1,7 +1,7 @@
 <div class="modal-dialog" role="document">
   <div class="modal-content">
   <div class= "picture2">
-  <%= form_with(model: [@event,@picture], local: true) do |form| %>
+  <%= form_with(model: @event, local: true) do |form| %>
     <% if @picture.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(picture.errors.count, "つのエラー") %> 下記理由によりエラーが発生しました！:</h2>
