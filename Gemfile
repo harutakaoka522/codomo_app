@@ -13,6 +13,7 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'ransack'
 gem 'rails-i18n'
+gem 'faker'
 
 
 gem 'rails', '~> 5.2.3'
