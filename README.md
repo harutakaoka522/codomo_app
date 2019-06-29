@@ -67,15 +67,15 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco
 Ruby
 JavaScript
 
-##フレームワーク
+## フレームワーク
 Ruby on Rails
 jQuery
 
-##環境
+## 環境
 Linux、Mac OS X
 
-##データベース
+## データベース
 postgresql
 
-##プロジェクト管理
-Git
+## プロジェクト管理
+Github
