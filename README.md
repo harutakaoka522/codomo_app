@@ -61,3 +61,21 @@ https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco
 * 'counter_culture', '~> 1.8'
 * 'carrierwave'
 * 'mini_magick'
+
+
+## 言語
+Ruby
+JavaScript
+
+##フレームワーク
+Ruby on Rails
+jQuery
+
+##環境
+Linux、Mac OS X
+
+##データベース
+postgresql
+
+##プロジェクト管理
+Git
