@@ -7,6 +7,11 @@ ja:
         start_at: 日程
         end_at: 終了日
         status: 状態
+      user:
+        name: 名前
+        Email: パスワード
+        Password confirmation: 確認パスワード
+        Current password (we need your current password to confirm your changes): 現在のパスワード
   helpers:
     submit:
       create: 登録する
