@@ -20,14 +20,12 @@ class CommentsController < ApplicationController
 
 
   def update
-    respond_to do |format|
-      @comment = Comment.find(params[:id])
-      @picture = @comment.picture
-      if @comment.update(comment_params)
-        format.html { redirect_to "/events/#{@picture.event_id}/pictures/#{@picture.id}", notice: 'コメントの編集をしました！' }
-      else
-        format.html { redirect_to "/events/#{@picture.event_id}/pictures/#{@picture.id}", notice: 'コメントは更新されませんでした' }
-      end
+    @comment = Comment.find(params[:id])
+    @picture = @comment.picture
+    if @comment.update(comment_params)
+      redirect_to "/events/#{@picture.event_id}/pictures/#{@picture.id}", notice: 'コメントの編集をしました！'
+    else
+      redirect_to "/events/#{@picture.event_id}/pictures/#{@picture.id}", notice: 'コメントは更新されませんでした' 
     end
   end
 
