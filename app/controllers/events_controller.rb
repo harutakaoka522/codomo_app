@@ -27,38 +27,26 @@ class EventsController < ApplicationController
   end
 
   def create
-  
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to action: 'index', notice: 'スケジュールを投稿しました' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.save
+      redirect_to action: 'index', notice: 'スケジュールを投稿しました'
+    else
+      render :new
     end
   end
 
   def update
-    respond_to do |format|
-      if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'スケジュールを更新しました' }
-        format.json { render :show, status: :ok, location: @event }
-      else
-        format.html { redirect_to @event, notice: 'スケジュールを更新出来ませんでした....' }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    if @event.update(event_params)
+      redirect_to @event, notice: 'スケジュールを更新しました'
+    else
+      redirect_to @event, notice: 'スケジュールを更新出来ませんでした....'
     end
   end
 
   def destroy
     @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'スケジュールを削除しました' }
-      format.json { head :no_content }
-    end
+    redirect_to events_url, notice: 'スケジュールを削除しました'
   end
 
   private
