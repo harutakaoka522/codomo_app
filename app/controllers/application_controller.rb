@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
     #protect_from_forgery with: :exception
-    before_action :login_check, only: [:new, :edit, :update, :destroy]
+    before_action :login_check, only: [:edit, :update, :destroy]
     
     
     def login_check

@@ -1,4 +1,13 @@
+<body>
+<div class="user">
 <h2>Log in</h2>
+
+<% if notice %>
+<h2 class="alert alert-notice"><%= notice %></h2>
+<% end %>
+<% if alert %>
+<h2 class="alert alert-error"><%= alert %></h2>
+<% end %>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
@@ -24,3 +33,6 @@
 <% end %>
 
 <%= render "users/shared/links" %>
+
+</div>
+</body>

@@ -8,8 +8,7 @@ class CommentsController < ApplicationController
     respond_to do |format|
       if @comment.save
         format.js { render :index }
-      else 
-        #format.html { redirect_to "/events/#{@picture.event_id}/pictures/#{@picture.id}", notice: '投稿できませんでした...' }
+      else
         format.js { render :index, notice: '投稿できませんでした...' }
       end
     end
@@ -29,17 +28,16 @@ class CommentsController < ApplicationController
       else
         format.html { redirect_to "/events/#{@picture.event_id}/pictures/#{@picture.id}", notice: 'コメントは更新されませんでした' }
       end
-   end
+    end
   end
 
   def destroy
     @comment = Comment.find(params[:id])
     if @comment.destroy
-        respond_to do |format|
-          
-          format.js { render :index }
-        end
+      respond_to do |format| 
+      format.js { render :index }
       end
+    end
   end
   
   private

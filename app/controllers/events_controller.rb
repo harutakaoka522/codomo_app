@@ -27,19 +27,15 @@ class EventsController < ApplicationController
   end
 
   def create
-    
+  
     @event = Event.new(event_params)
     @event.user_id = current_user.id
-    #@event = current_user.events.build(event_params)
-
-    
     respond_to do |format|
       if @event.save
         format.html { redirect_to action: 'index', notice: 'スケジュールを投稿しました' }
         format.json { render :show, status: :created, location: @event }
       else
-        @events = Event.all
-        format.html { redirect_to action: 'index', notice: 'スケジュール投稿が失敗しました' }
+        format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -51,7 +47,7 @@ class EventsController < ApplicationController
         format.html { redirect_to @event, notice: 'スケジュールを更新しました' }
         format.json { render :show, status: :ok, location: @event }
       else
-        format.html { render :edit }
+        format.html { redirect_to @event, notice: 'スケジュールを更新出来ませんでした....' }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end

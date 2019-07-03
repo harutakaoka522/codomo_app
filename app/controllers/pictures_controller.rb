@@ -1,5 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :update, :destroy]
+  before_action :schedule_end, only: [:create]
 
   def index
     @pictures = Picture.all
@@ -12,11 +13,10 @@ class PicturesController < ApplicationController
 
   def edit
     @picture = Picture.find(params[:id])
- #  @event = Event.find(@picture.event_id)
     @event = @picture.event
   end
 
-  def new
+  def new  
     if params[:back]
       @picture = Picture.new(picture_params)
     else
@@ -26,39 +26,27 @@ class PicturesController < ApplicationController
   end
 
   def create
-   event = Event.find(params[:event_id])
-   @picture = event.pictures.build(picture_params)
-    respond_to do |format|
+    event = Event.find(params[:event_id])
+    @picture = event.pictures.build(picture_params)
       if @picture.save
-       
-        format.html { redirect_to event_path(@picture.event_id), notice: '画像を投稿しました！' }
-        format.json { render :show, status: :created, location: @picture }
+        redirect_to event_path(@picture.event_id), notice: '画像を投稿しました！'
       else
-       format.html { redirect_to event_path(@picture.event_id), notice: '正しく入力してください' }
-       format.json { render json: @picture.errors, status: :unprocessable_entity }
+        @event = Event.find(params[:event_id])
+        render :new
       end
-    end
   end
 
-  def update
-    respond_to do |format|      
-      if @picture.update(picture_params)
-       # binding.pry
-        format.html { redirect_to event_path(@picture.event_id), notice: '投稿の編集をしました！' }
-        format.json { render :show, status: :ok, location: @picture }
-      else
-        format.html { redirect_to event_path(@picture.event_id),notice: '正しく入力してください'  }
-        format.json { render json: @picture.errors, status: :unprocessable_entity }
-      end
+  def update  
+    if @picture.update(picture_params)
+      redirect_to event_path(@picture.event_id), notice: '投稿の編集をしました！'
+    else
+      redirect_to event_path(@picture.event_id),notice: '正しく入力してください'
     end
   end
 
   def destroy
     @picture.destroy
-    respond_to do |format|
-      format.html { redirect_to event_path(@picture.event_id), notice: '写真を削除しました' }
-      format.json { head :no_content }
-    end
+      redirect_to event_path(@picture.event_id), notice: '写真を削除しました'
   end
       
   def confirm
@@ -74,4 +62,11 @@ class PicturesController < ApplicationController
   def picture_params
     params.require(:picture).permit(:image, :image_cache, :image_content).merge(event_id: params[:event_id])
   end
+
+   def schedule_end
+    event = Event.find(params[:event_id])
+     if event.status == "未完了"
+       redirect_to event, notice: 'スケジュールが未完了です！'
+     end
+   end
 end
