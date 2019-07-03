@@ -26,7 +26,7 @@ RSpec.feature "ユーザー管理機能", type: :feature do
     click_on "Sign up"
     click_on "ログアウト"
     
-    expect(page).to have_content 'CODOMO schedular'
+    expect(page).to have_content 'CODOMO scheduler'
   end
 
   scenario "ユーザー情報が編集できること" do
