@@ -30,7 +30,8 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user_id = current_user.id
     if @event.save
-      redirect_to action: 'index', notice: 'スケジュールを投稿しました'
+      redirect_to events_url, notice: 'スケジュールを投稿しました'
+     # redirect_to action: 'index', notice: 'スケジュールを投稿しました'
     else
       render :new
     end
