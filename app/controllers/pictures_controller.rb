@@ -40,7 +40,8 @@ class PicturesController < ApplicationController
     if @picture.update(picture_params)
       redirect_to event_path(@picture.event_id), notice: '投稿の編集をしました！'
     else
-      redirect_to event_path(@picture.event_id),notice: '正しく入力してください'
+      @event = Event.find(params[:event_id])
+      render :new
     end
   end
 
