@@ -23,7 +23,7 @@ class Event < ApplicationRecord
   def start_end_check
     unless start_at.nil? || end_at.nil?
       errors.add(:終了日, "の日付を正しく記入してください。") unless
-      self.start_at < self.end_at
+      self.start_at <= self.end_at
     end
   end
 end
