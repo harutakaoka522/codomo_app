@@ -35,7 +35,9 @@
 <h2>思い出の写真の投稿</h2>
 
 <% if @event.user_id == @current_user.id %>
+<% if @event.status == "完了" %>
 <%= link_to '写真を投稿する', new_event_picture_path(@picture.event_id) ,remote: true,class: "btn btn-lg btn-info" %>
+<% end %>
 <% end %>
 <br>
 

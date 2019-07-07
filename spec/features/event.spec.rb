@@ -63,8 +63,8 @@ RSpec.feature "スケジュール管理機能", type: :feature do
   click_on "登録する"  
   click_on "詳細"
   click_on "削除"
-
-  expect(page).to have_content 'スケジュールを削除しました'
+  
+  expect(page).not_to have_content 'test_title'
   end
 end
 

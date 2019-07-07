@@ -4,7 +4,7 @@ ja:
       event:
         title: タイトル
         content: 内容
-        start_at: 日程
+        start_at: 開始日
         end_at: 終了日
         status: 状態
       user:
@@ -12,6 +12,9 @@ ja:
         Email: パスワード
         Password confirmation: 確認パスワード
         Current password (we need your current password to confirm your changes): 現在のパスワード
+      picture:
+        image_content: 本文
+        image: 写真
   helpers:
     submit:
       create: 登録する

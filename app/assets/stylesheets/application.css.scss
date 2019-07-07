@@ -742,4 +742,10 @@ position: absolute;
   
 }
 
-     
+ul {
+  list-style: none;
+}
+
+.field_with_errors {
+  display: inline;
+}
