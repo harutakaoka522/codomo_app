@@ -28,11 +28,6 @@ Rails 5.2.3
   - [ ] フォトへのコメント投稿が可能
 
 
-- [ ] チーム機能
-  - [ ] チームの作成や、チームメンバーへのオーナー権限付与などを実行可能に
-- [ ] チームメンバー招待機能
-  - [ ] チームメンバーを招待し、スケジュールやフォト投稿など実行可能メンバーを増やすことが可能
-
 ## カタログ設計
 https://docs.google.com/spreadsheets/d/e/2PACX-1vRt58KFkx1iPWne4aAYJeDGmJbFSBwco40XBCfLpvKzk7SW-T7kjOJHuBAkUBzwf8mNifSNaWkU1_4w/pubhtml?gid=1770486883&single=true
 
