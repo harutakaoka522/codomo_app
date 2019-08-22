@@ -58,6 +58,14 @@ group :development do
   gem 'spring-commands-rspec'
   gem 'capybara'
   gem 'launchy'
+
+  gem 'capistrano-rails'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-yarn'
+  gem 'capistrano-passenger', '>= 0.1.1'
+  gem 'ed25519'
+  gem 'bcrypt_pbkdf'
 end
 
 group :test do
