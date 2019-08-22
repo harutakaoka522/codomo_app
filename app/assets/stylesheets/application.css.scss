@@ -310,7 +310,7 @@ img::-moz-selection {
 header.masthead {
   text-align: center;
   color: white;
-  background-image: url("../img/header-bg.jpg");
+  background-image: image-url("../img/header-bg.jpg");
   background-repeat: no-repeat;
   background-attachment: scroll;
   background-position: center center;
@@ -564,7 +564,7 @@ ul.social-buttons li a:active, ul.social-buttons li a:focus, ul.social-buttons l
 
 #page-top{
   width: 100%;
-  background-image: url("4.jpg");
+  background-image: image-url("4.jpg");
   background-repeat: no-repeat;
  
   position: absolute;
